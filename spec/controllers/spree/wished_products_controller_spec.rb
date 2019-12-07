@@ -1,7 +1,12 @@
 RSpec.describe Spree::WishedProductsController, type: :controller do
-  let(:user)           { create(:user) }
+  let(:user)            { create(:user) }
   let!(:wished_product) { create(:wished_product) }
-  let(:attributes)     { attributes_for(:wished_product) }
+  let(:attributes)      {
+                          {
+                            wishlist_id: wished_product.wishlist.id,
+                            variant_id: wished_product.variant.id
+                          }
+                        }
 
   before { allow(controller).to receive(:spree_current_user).and_return(user) }
 
@@ -24,13 +29,15 @@ RSpec.describe Spree::WishedProductsController, type: :controller do
         expect(response).to redirect_to spree.wishlist_path(Spree::WishedProduct.last.wishlist)
       end
 
-      it 'does not save if wished product already exist in wishlist' do
-        variant  = create(:variant)
-        wishlist = create(:wishlist, user: user)
-        wished_product = create(:wished_product, wishlist: wishlist, variant: variant)
-        expect {
-          post :create, params: { id: wished_product.id, wished_product: { wishlist_id: wishlist.id, variant_id: variant.id } }
-        }.to change(Spree::WishedProduct, :count).by(0)
+      context 'and product already present in wishlist' do
+        let(:wishlist)        { create(:wishlist, user: user) }
+        let!(:wished_product) { create(:wished_product, wishlist: wishlist) }
+
+        it 'does not save it' do
+          expect {
+            post :create, params: { wished_product: attributes }
+          }.to change(Spree::WishedProduct, :count).by(0)
+        end
       end
     end
 

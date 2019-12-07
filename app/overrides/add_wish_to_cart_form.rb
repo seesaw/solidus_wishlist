@@ -3,4 +3,4 @@ Deface::Override.new(
   name: 'add_wish_to_cart_form',
   insert_bottom: "[data-hook='cart_form']",
   partial: 'spree/products/wishlist_form'
-)
+) if SolidusWishlist::Config.use_deface
