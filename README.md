@@ -1,6 +1,6 @@
 # Solidus Wishlist
 
-[![Build Status](https://api.travis-ci.org/boomerdigital/solidus_wishlist.svg?branch=master)](https://travis-ci.org/boomerdigital/solidus_wishlist)
+[![Build Status](https://travis-ci.org/seesaw/solidus_wishlist.svg?branch=enhancements)](https://travis-ci.org/seesaw/solidus_wishlist)
 
 The Solidus Wishlist extension enables multiple wishlists per user, as well as managing those as public (sharable) and private.
 
@@ -10,17 +10,17 @@ The Solidus Wishlist extension enables multiple wishlists per user, as well as m
 
 Add the following to your `Gemfile`
 ```ruby
-gem 'solidus_wishlist', github: 'boomerdigital/solidus_wishlist', branch: 'master'
+gem 'solidus_wishlist', github: 'seesaw/solidus_wishlist', branch: 'enhancements'
 ```
 
 If you want to disable defacing of product/user views, add the following to your `Gemfile`
 ```ruby
-gem 'solidus_wishlist', github: 'boomerdigital/solidus_wishlist', branch: 'master', require: 'solidus_wishlist_no_deface'
+gem 'solidus_wishlist', github: 'seesaw/solidus_wishlist', branch: 'enhancements', require: 'solidus_wishlist_no_deface'
 ```
 
 If you want to include the ability to email a friend your wishlist, add the following to your `Gemfile`
 ```ruby
-gem 'solidus_email_to_friend', github: 'boomerdigital/solidus_email_to_friend', branch: 'master'
+gem 'solidus_email_to_friend', github: 'seesaw/solidus_email_to_friend', branch: 'enhancements'
 ```
 
 Run
@@ -59,7 +59,7 @@ require 'solidus_whishlist/factories'
 
 Copyright (c) 2009-2015 [Spree Commerce Inc.][4] and [contributors][5], released under the [New BSD License][3]
 
-[1]: https://github.com/boomerdigital/solidus_wishlist/blob/master/CONTRIBUTING.md
-[3]: https://github.com/boomerdigital/solidus_wishlist/blob/master/LICENSE.md
+[1]: https://github.com/seesaw/solidus_wishlist/blob/enhancements/CONTRIBUTING.md
+[3]: https://github.com/seesaw/solidus_wishlist/blob/enhancements/LICENSE.md
 [4]: https://github.com/spree
-[5]: https://github.com/boomerdigital/solidus_wishlist/graphs/contributors
+[5]: https://github.com/seesaw/solidus_wishlist/graphs/contributors
